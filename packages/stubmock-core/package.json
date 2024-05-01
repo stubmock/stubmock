@@ -1,0 +1,24 @@
+{
+  "name": "@stubmock/stubmock",
+  "version": "0.0.1",
+  "description": "A library for working with stubmock.",
+  "author": "Joshua Nathaniel Miller",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:stubmock/stubmock.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --coverage --no-cache"
+  }
+}

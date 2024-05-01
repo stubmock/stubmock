@@ -1,0 +1,33 @@
+{
+  "name": "@stubmock/stubmock-utils",
+  "version": "0.0.1",
+  "description": "Utils to be used by stubmock and stubmock-gateway",
+  "author": "Joshua Nathaniel Miller",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:stubmock/stubmock.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "mercurius": "9.8.0"
+  },
+  "devDependencies": {
+    "jest": "27.3.0"
+  }
+}

@@ -1,0 +1,56 @@
+name: Publish StubMock API Image
+
+on:
+  push:
+    tags:
+      - 'stubmock-v*.*.*'
+
+env:
+  REGISTRY: ghcr.io
+  API_IMAGE_NAME: stubmock/stubmock
+
+jobs:
+  publish-api:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set Tag Version
+        id: tag
+        run: |
+          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/stubmock-}
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.API_IMAGE_NAME }}
+          tags: |
+            type=raw,value=${{ steps.tag.outputs.VERSION }}
+            type=raw,value=latest
+
+      - name: Build Base Image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+          tags: stubmock/base
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./packages/stubmock
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

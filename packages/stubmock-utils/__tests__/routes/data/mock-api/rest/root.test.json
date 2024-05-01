@@ -1,0 +1,66 @@
+[
+  {
+    "service": "mock-api",
+    "path": "/api/ide/recommended",
+    "method": "POST",
+    "request": {
+      "query": {
+        "a": "AD26394B-77B9-41A0-A473-744664A047DZ"
+      }
+    },
+    "response": [
+      {
+        "status": 200,
+        "body": {
+          "categories": [
+            {
+              "categoryName": "Idea"
+            }
+          ],
+          "codeId": "BC24B3C6-D9DD-45E7-B6AC-AC2113C966AD"
+        }
+      }
+    ]
+  },
+  {
+    "service": "mock-api",
+    "path": "/api/ide/recommended",
+    "method": "POST",
+    "request": {
+      "query": {
+        "a": "FD26394B-77B9-41A0-A473-744664A047DD"
+      }
+    },
+    "response": [
+      {
+        "status": 200,
+        "body": {
+          "categories": [
+            {
+              "categoryName": "VS Code"
+            }
+          ],
+          "codeId": "CC24B3C6-D9DD-45E7-B6AC-AC2113C966AE"
+        }
+      }
+    ]
+  },
+  {
+    "service": "mock-api",
+    "path": "/api/users/profile",
+    "method": "GET",
+    "request": {
+      "query": {
+        "a": "FD26394B-77B9-41A0-A473-744664A047DD"
+      }
+    },
+    "response": [
+      {
+        "status": 200,
+        "body": {
+          "userId": "FD26394B-77B9-41A0-A473-744664A047DD"
+        }
+      }
+    ]
+  }
+]

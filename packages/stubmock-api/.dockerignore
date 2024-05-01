@@ -1,0 +1,12 @@
+*
+!../../node_modules
+!routes
+!utils
+!lib
+
+!.npmrc
+!package.json
+!yarn.lock
+!app.js
+!start.sh
+!public
